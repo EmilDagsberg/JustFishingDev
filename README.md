@@ -22,10 +22,4 @@ _________________
 
 Enviromental:
 
-https://assetstore.unity.com/packages/3d/environments/landscapes/hills-mountains-and-lakes-terrains-stamps-and-brushes-220273#reviews
-
-https://assetstore.unity.com/packages/3d/vegetation/trees/european-forests-realistic-trees-229716
-
 https://assetstore.unity.com/packages/2d/textures-materials/nature/grass-flowers-pack-free-138810
-
-https://assetstore.unity.com/packages/vfx/shaders/the-toby-foliage-engine-light-282901
