@@ -5,15 +5,15 @@ public class FishMovement : MonoBehaviour
     public float speed = 3f;
     public float turnSpeed = 2f;
     public float changeDirectionTime = 3f;
-
-    public Vector3 swimAreaCenter;
-    public Vector3 swimAreaSize = new Vector3(20f, 10f, 20f);
+    public float swimRadius = 1f; // small area around starting position
 
     private float timer;
     private Vector3 targetDirection;
+    private Vector3 startPosition;
 
     void Start()
     {
+        startPosition = transform.position; // center of small swim area
         timer = changeDirectionTime;
         SetNewDirection();
     }
@@ -22,7 +22,7 @@ public class FishMovement : MonoBehaviour
     {
         MoveForward();
         HandleDirectionChange();
-        KeepInsideBounds();
+        KeepWithinSmallArea();
     }
 
     void MoveForward()
@@ -55,19 +55,14 @@ public class FishMovement : MonoBehaviour
         ).normalized;
     }
 
-    void KeepInsideBounds()
+    void KeepWithinSmallArea()
     {
-        Vector3 min = swimAreaCenter - swimAreaSize / 2;
-        Vector3 max = swimAreaCenter + swimAreaSize / 2;
+        Vector3 offset = transform.position - startPosition;
 
-        if (transform.position.x < min.x || transform.position.x > max.x ||
-            transform.position.y < min.y || transform.position.y > max.y ||
-            transform.position.z < min.z || transform.position.z > max.z)
+        // If outside the small radius, steer back towards the center
+        if (offset.magnitude > swimRadius)
         {
-            Vector3 directionToCenter = (swimAreaCenter - transform.position).normalized;
-            targetDirection = directionToCenter;
+            targetDirection = (-offset).normalized;
         }
     }
-
-    
 }
