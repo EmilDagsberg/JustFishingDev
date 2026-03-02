@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerFootsteps : MonoBehaviour
 {
-    [SerializeField] private PlayerController playerController;
+    [SerializeField] private PlayerMovement playerController;
     public AudioClip footStepSFX;
 
     [Header("Randomization")]
     [SerializeField] private float minVolume = 0.8f;
     [SerializeField] private float maxVolume = 1f;
+
 
     private void Start()
     {
@@ -17,7 +18,7 @@ public class PlayerFootsteps : MonoBehaviour
             AudioManager.instance = FindObjectOfType<AudioManager>();
 
         if (playerController == null)
-            playerController = FindObjectOfType<PlayerController>();
+            playerController = FindObjectOfType<PlayerMovement>();
 
         StartCoroutine(PlayFootsteps());
     }
@@ -26,7 +27,7 @@ public class PlayerFootsteps : MonoBehaviour
     {
         while (true)
         {
-            if (playerController != null && playerController.movement.magnitude > 0.1f)
+            if (playerController != null && playerController.CurrentMovement.magnitude > 0.1f)
             {
                 if (AudioManager.instance == null)
                     AudioManager.instance = FindObjectOfType<AudioManager>();
