@@ -78,7 +78,7 @@ public class WaterInteraction : MonoBehaviour
 
     void MinigameCheck()
     {
-        if (isLookingAtWater = true && !minigameActive && Input.GetButtonDown("Interact"))
+        if (isLookingAtWater == true && !minigameActive && Input.GetButtonDown("Interact"))
         {
             minigameActive = true;
             playerController.enabled = false; // Stop player movement
