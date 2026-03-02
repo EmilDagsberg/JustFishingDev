@@ -6,10 +6,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float movementSpeed = 2;
     [SerializeField] private float mouseSensitivity = 2;
 
-    [Header("Interaction")]
-    [SerializeField] private float interactRange = 2;
-    [SerializeField] private LayerMask interactableLayer;
-
     private CharacterController characterController;
     private Camera playerCamera;
     private float verticalRotation = 0;
