@@ -17,7 +17,8 @@ public class WaterInteraction : MonoBehaviour
     [SerializeField] GameObject fishingIcon;
 
     [Header("Player controller")]
-    [SerializeField] PlayerController playerController; // Reference to controller
+    [SerializeField] PlayerMovement playerMovement; // Reference to movement controller
+    [SerializeField] MouseLook mouseLook; // Reference to camera controller
 
     bool isLookingAtWater;
     bool minigameActive = false;
@@ -81,7 +82,8 @@ public class WaterInteraction : MonoBehaviour
         if (isLookingAtWater == true && !minigameActive && Input.GetButtonDown("Interact"))
         {
             minigameActive = true;
-            playerController.enabled = false; // Stop player movement
+            playerMovement.enabled = false; // Stop player movement
+            mouseLook.enabled = false;
             StartMinigame();
         }
     }
@@ -95,6 +97,7 @@ public class WaterInteraction : MonoBehaviour
     void EndMinigame()
     {
         minigameActive = false;
-        playerController.enabled = true; // Start player movement
+        playerMovement.enabled = true; // Start player movement
+        mouseLook.enabled = true;
     }
 }
