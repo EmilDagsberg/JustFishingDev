@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class ShopUI : MonoBehaviour
 {
@@ -7,16 +8,25 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private GameObject interactPromptUI;
     [SerializeField] private GameObject shopMenuUI;
 
+    [Header("Shop System")]
+    [SerializeField] private ItemData[] shopItems;
+    [SerializeField] private Transform itemContainer;
+    [SerializeField] private GameObject itemPrefab;
+    [SerializeField] private TextMeshProUGUI coinText;
+
     [Header("Settings")]
     [SerializeField] private float interactionDistance = 3f;
     [SerializeField] private KeyCode interactKey = KeyCode.E;
 
     private bool shopOpen = false;
+    private int coins = 100;
+    private bool shopGenerated = false;
 
     void Start()
     {
         interactPromptUI.SetActive(false);
         shopMenuUI.SetActive(false);
+        UpdateCoins();
     }
 
     void Update()
@@ -24,10 +34,8 @@ public class ShopUI : MonoBehaviour
         if (player == null) return;
 
         float distance = Vector3.Distance(player.position, transform.position);
-
         bool inRange = distance <= interactionDistance;
 
-        // Show prompt only if close and shop not open
         interactPromptUI.SetActive(inRange && !shopOpen);
 
         if (inRange && Input.GetKeyDown(interactKey))
@@ -38,7 +46,6 @@ public class ShopUI : MonoBehaviour
                 CloseShop();
         }
 
-        // Auto close if player walks away
         if (!inRange && shopOpen)
         {
             CloseShop();
@@ -54,11 +61,18 @@ public class ShopUI : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        Time.timeScale = 0f; // Optional pause
+        Time.timeScale = 0f;
+
+        if (!shopGenerated)
+        {
+            GenerateShop();
+            shopGenerated = true;
+        }
     }
 
-    void CloseShop()
+    public void CloseShop()
     {
+
         shopOpen = false;
         shopMenuUI.SetActive(false);
 
@@ -66,5 +80,36 @@ public class ShopUI : MonoBehaviour
         Cursor.visible = false;
 
         Time.timeScale = 1f;
+    }
+
+    void GenerateShop()
+    {
+        foreach (ItemData item in shopItems)
+        {
+            GameObject obj = Instantiate(itemPrefab, itemContainer);
+
+            ShopItemUI ui = obj.GetComponent<ShopItemUI>();
+            ui.Setup(item, this);
+        }
+    }
+
+    public void BuyItem(ItemData item)
+    {
+        if (coins >= item.price)
+        {
+            coins -= item.price;
+            UpdateCoins();
+
+            Debug.Log("Bought: " + item.itemName);
+        }
+        else
+        {
+            Debug.Log("Not enough coins");
+        }
+    }
+
+    void UpdateCoins()
+    {
+        coinText.text = "Coins: " + coins;
     }
 }
