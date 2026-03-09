@@ -37,7 +37,7 @@ Material:
     RenderType: Opaque
   disabledShaderPasses:
   - MOTIONVECTORS
-  m_LockedProperties: 
+  m_LockedProperties: _AlphaClip
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -203,6 +203,7 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _DstBlendAlpha: 0
     - _ENABLED: 0
     - _ENABLE_COVERAGE: 0
     - _EnvironmentReflections: 1
@@ -229,6 +230,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _SrcBlendAlpha: 1
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZTest: 4
