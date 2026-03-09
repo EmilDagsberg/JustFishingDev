@@ -6,8 +6,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float sprintMultiplier = 1.5f;
-    [SerializeField] private float jumpHeight = 1.5f;
-    [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private float jumpHeight = 1f;
+    [SerializeField] private float gravity = -30f;
+    [SerializeField] private float riseMultiplier = 1.0f;  // affects jump-up only
+    [SerializeField] private float fallMultiplier = 3.0f;  // affects falling only
 
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;
@@ -34,7 +36,15 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckGround()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        // Find what colliders are inside the ground-check sphere
+        Collider[] hits = Physics.OverlapSphere(
+            groundCheck.position,
+            groundDistance,
+            groundMask,
+            QueryTriggerInteraction.Ignore
+        );
+
+        isGrounded = hits.Length > 0;
 
         if (isGrounded && velocity.y < 0)
             velocity.y = -2f;
@@ -57,13 +67,23 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleJump()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
     }
 
     void ApplyGravity()
     {
-        velocity.y += gravity * Time.deltaTime;
+        float g = gravity;
+
+        // Going up (velocity.y > 0): usually keep normal gravity or slightly stronger
+        if (velocity.y > 0f)
+            g *= riseMultiplier;
+
+        // Falling (velocity.y < 0): make it stronger for snappy fall
+        if (velocity.y < 0f)
+            g *= fallMultiplier;
+
+        velocity.y += g * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
 }
