@@ -23,7 +23,7 @@ public class ItemEquipper : MonoBehaviour
     {
         if (inventory == null || itemHolder == null) return;
 
-        ItemData item = inventory.Get(index);
+        PlayerItemData item = inventory.Get(index);
         if (item == null || item.equippedPrefab == null)
         {
             Debug.Log("No item in that slot.");
@@ -40,7 +40,6 @@ public class ItemEquipper : MonoBehaviour
         Debug.Log("Equipped: " + item.itemName);
     }
 
-    // auto-equip newest pickup
     public void EquipLast()
     {
         EquipIndex(inventory.items.Count - 1);
