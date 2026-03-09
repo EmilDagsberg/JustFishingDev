@@ -1,6 +1,9 @@
+using UnityEngine;
+
 [System.Serializable]
 public class Item
 {
     public string itemName;
-    public UnityEngine.Sprite icon;
+    public Sprite icon;
+    public int sellValue;
 }
