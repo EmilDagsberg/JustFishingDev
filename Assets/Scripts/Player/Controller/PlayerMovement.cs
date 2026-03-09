@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private Vector3 move;
 
+    public Vector3 CurrentMovement { get; private set; }
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -46,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
+        CurrentMovement = move;
 
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
 
