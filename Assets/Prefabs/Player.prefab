@@ -212,7 +212,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &5732895211296752877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,15 +225,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351e295c7007b574bad869a67ed23965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 10
+  speed: 5
   sprintMultiplier: 1.5
-  jumpHeight: 4
-  gravity: -9.81
+  jumpHeight: 1.2
+  gravity: -45
+  fallMultiplier: 3.5
+  lowJumpMultiplier: 2
   groundCheck: {fileID: 6181943260965986097}
   groundDistance: 0.3
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
 --- !u!1 &8451532300089884577
 GameObject:
   m_ObjectHideFlags: 0
