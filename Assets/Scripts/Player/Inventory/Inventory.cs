@@ -5,12 +5,12 @@ public class Inventory : MonoBehaviour
     public static Inventory instance;
 
     [Header("Runtime Inventory")]
-    public Item[] hotbar = new Item[5];
-    public Item[] backpack = new Item[15];
+    public InventorySlot[] hotbar = new InventorySlot[5];
+    public InventorySlot[] backpack = new InventorySlot[15];
 
     [Header("Starting Inventory")]
-    public Item[] startingHotbar = new Item[5];
-    public Item[] startingBackpack = new Item[15];
+    public InventorySlot[] startingHotbar = new InventorySlot[5];
+    public InventorySlot[] startingBackpack = new InventorySlot[15];
 
     void Awake()
     {
@@ -22,55 +22,116 @@ public class Inventory : MonoBehaviour
             return;
         }
 
+        InitializeSlots(hotbar);
+        InitializeSlots(backpack);
+        InitializeSlots(startingHotbar);
+        InitializeSlots(startingBackpack);
+
         LoadStartingInventory();
     }
 
     void Start()
     {
-        HotbarUI hotbarUI = FindObjectOfType<HotbarUI>();
-        if (hotbarUI != null)
-            hotbarUI.RefreshUI();
+        RefreshAllUI();
+    }
+
+    void InitializeSlots(InventorySlot[] slots)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] == null)
+                slots[i] = new InventorySlot();
+        }
     }
 
     void LoadStartingInventory()
     {
-        for (int i = 0; i < hotbar.Length; i++)
-        {
-            hotbar[i] = startingHotbar[i];
-        }
+        CopySlots(startingHotbar, hotbar);
+        CopySlots(startingBackpack, backpack);
+    }
 
-        for (int i = 0; i < backpack.Length; i++)
+    void CopySlots(InventorySlot[] source, InventorySlot[] target)
+    {
+        for (int i = 0; i < target.Length; i++)
         {
-            backpack[i] = startingBackpack[i];
+            if (source[i] != null && source[i].fish != null && source[i].amount > 0)
+            {
+                target[i].fish = source[i].fish;
+                target[i].amount = source[i].amount;
+            }
+            else
+            {
+                target[i].Clear();
+            }
         }
     }
 
-    public bool AddItem(Item item)
+    public bool AddFish(FishData fish, int amount = 1)
     {
-        // Try hotbar first
-        for (int i = 0; i < hotbar.Length; i++)
+        if (fish == null || amount <= 0)
+            return false;
+
+        int remaining = amount;
+
+        remaining = AddToExistingStacks(hotbar, fish, remaining);
+        remaining = AddToExistingStacks(backpack, fish, remaining);
+
+        remaining = AddToEmptySlots(hotbar, fish, remaining);
+        remaining = AddToEmptySlots(backpack, fish, remaining);
+
+        RefreshAllUI();
+
+        if (remaining > 0)
         {
-            if (hotbar[i] == null)
+            Debug.Log("Inventory full! Could not add all fish.");
+            return false;
+        }
+
+        return true;
+    }
+
+    int AddToExistingStacks(InventorySlot[] slots, FishData fish, int amountToAdd)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            InventorySlot slot = slots[i];
+
+            if (slot.fish == fish && slot.amount < fish.maxStack)
             {
-                hotbar[i] = item;
-                RefreshAllUI();
-                return true;
+                int spaceLeft = fish.maxStack - slot.amount;
+                int addAmount = Mathf.Min(spaceLeft, amountToAdd);
+
+                slot.amount += addAmount;
+                amountToAdd -= addAmount;
+
+                if (amountToAdd <= 0)
+                    return 0;
             }
         }
 
-        // Then backpack
-        for (int i = 0; i < backpack.Length; i++)
+        return amountToAdd;
+    }
+
+    int AddToEmptySlots(InventorySlot[] slots, FishData fish, int amountToAdd)
+    {
+        for (int i = 0; i < slots.Length; i++)
         {
-            if (backpack[i] == null)
+            InventorySlot slot = slots[i];
+
+            if (slot.IsEmpty())
             {
-                backpack[i] = item;
-                RefreshAllUI();
-                return true;
+                int addAmount = Mathf.Min(fish.maxStack, amountToAdd);
+
+                slot.fish = fish;
+                slot.amount = addAmount;
+                amountToAdd -= addAmount;
+
+                if (amountToAdd <= 0)
+                    return 0;
             }
         }
 
-        Debug.Log("Inventory full!");
-        return false;
+        return amountToAdd;
     }
 
     public void RefreshAllUI()
