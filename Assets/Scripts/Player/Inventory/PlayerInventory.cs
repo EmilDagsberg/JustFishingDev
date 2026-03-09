@@ -3,17 +3,18 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public List<ItemData> items = new List<ItemData>();
+    public List<PlayerItemData> items = new List<PlayerItemData>();
 
-    public bool Add(ItemData item)
+    public bool Add(PlayerItemData item)
     {
         if (item == null) return false;
+
         items.Add(item);
         Debug.Log($"Added to inventory: {item.itemName}");
         return true;
     }
 
-    public ItemData Get(int index)
+    public PlayerItemData Get(int index)
     {
         if (index < 0 || index >= items.Count) return null;
         return items[index];

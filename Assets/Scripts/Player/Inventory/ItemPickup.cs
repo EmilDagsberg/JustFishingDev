@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    public ItemData item;
+    public PlayerItemData item;
 
     private PlayerInventory inv;
     private ItemEquipper equipper;
@@ -36,9 +36,7 @@ public class ItemPickup : MonoBehaviour
         {
             if (inv.Add(item))
             {
-                // auto-equip immediately
                 equipper?.EquipLast();
-
                 Destroy(gameObject);
             }
         }

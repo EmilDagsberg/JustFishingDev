@@ -7,7 +7,7 @@ public class FishingRodController : MonoBehaviour
     [SerializeField] private Transform castPoint;
     [SerializeField] private GameObject bobberPrefab;
     [SerializeField] private LineRenderer lineRenderer;
-    [SerializeField] private ItemData fishItem; // item added to inventory when caught
+    [SerializeField] private PlayerItemData fishItem; // item added to inventory when caught
 
     [Header("Cast Settings")]
     [SerializeField] private float castForce = 15f;
