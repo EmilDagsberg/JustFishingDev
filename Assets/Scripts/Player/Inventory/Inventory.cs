@@ -140,4 +140,41 @@ public class Inventory : MonoBehaviour
         if (hotbarUI != null)
             hotbarUI.RefreshUI();
     }
+
+    public bool RemoveFish(FishData fish, int amount = 1)
+    {
+        if (fish == null || amount <= 0)
+            return false;
+
+        int remaining = amount;
+
+        remaining = RemoveFromSlots(hotbar, fish, remaining);
+        remaining = RemoveFromSlots(backpack, fish, remaining);
+
+        RefreshAllUI();
+        return remaining <= 0;
+    }
+
+int RemoveFromSlots(InventorySlot[] slots, FishData fish, int amountToRemove)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            InventorySlot slot = slots[i];
+
+            if (slot != null && slot.fish == fish && slot.amount > 0)
+            {
+                int removeAmount = Mathf.Min(slot.amount, amountToRemove);
+                slot.amount -= removeAmount;
+                amountToRemove -= removeAmount;
+
+                if (slot.amount <= 0)
+                    slot.Clear();
+
+                if (amountToRemove <= 0)
+                    return 0;
+            }
+        }
+
+        return amountToRemove;
+    }
 }

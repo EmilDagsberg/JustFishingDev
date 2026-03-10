@@ -31775,8 +31775,22 @@ MonoBehaviour:
   player: {fileID: 0}
   interactPromptUI: {fileID: 0}
   shopMenuUI: {fileID: 0}
+  buyPage: {fileID: 0}
+  sellPage: {fileID: 0}
+  shopItems:
+  - {fileID: 11400000, guid: 760df4724cb77f746bec561417cb503a, type: 2}
+  - {fileID: 11400000, guid: 760df4724cb77f746bec561417cb503a, type: 2}
+  itemContainer: {fileID: 0}
+  itemPrefab: {fileID: 2684630883888888497, guid: 6a3e3552ef333ec4f8b6f933013acaf3, type: 3}
+  sellItemContainer: {fileID: 0}
+  sellItemPrefab: {fileID: 6634428784378059055, guid: 4b1150ed62885684db1e2049b9b843cc, type: 3}
+  coinText: {fileID: 0}
   interactionDistance: 5
   interactKey: 101
+  buyTabButton: {fileID: 0}
+  sellTabButton: {fileID: 0}
+  activeTabColor: {r: 0.8, g: 0.9, b: 1, a: 1}
+  inactiveTabColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &7231767413298178359
 GameObject:
   m_ObjectHideFlags: 0

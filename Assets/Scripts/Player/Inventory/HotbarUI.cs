@@ -58,7 +58,7 @@ public class HotbarUI : MonoBehaviour
 
                 // Show stack number
                 if (slot.amount > 1)
-                    amountTexts[i].text = slot.amount.ToString();
+                    amountTexts[i].text = "x" + slot.amount.ToString();
                 else
                     amountTexts[i].text = "";
             }
