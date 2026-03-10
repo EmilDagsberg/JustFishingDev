@@ -6,8 +6,12 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float sprintMultiplier = 1.5f;
-    [SerializeField] private float jumpHeight = 1.5f;
-    [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private float jumpHeight = 1.2f;
+
+    [Header("Gravity")]
+    [SerializeField] private float gravity = -22f;
+    [SerializeField] private float fallMultiplier = 3.5f;
+    [SerializeField] private float lowJumpMultiplier = 2f;
 
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;
@@ -17,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 velocity;
     private bool isGrounded;
-    private Vector3 move;
 
     public Vector3 CurrentMovement { get; private set; }
 
@@ -38,8 +41,10 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0f)
+        {
             velocity.y = -2f;
+        }
     }
 
     void HandleMovement()
@@ -51,9 +56,7 @@ public class PlayerMovement : MonoBehaviour
         CurrentMovement = move;
 
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
-
-        float sprintSpeed = speed * sprintMultiplier; // calculated value
-        float moveSpeed = isSprinting ? sprintSpeed : speed;
+        float moveSpeed = isSprinting ? speed * sprintMultiplier : speed;
 
         controller.Move(move * moveSpeed * Time.deltaTime);
     }
@@ -61,12 +64,26 @@ public class PlayerMovement : MonoBehaviour
     void HandleJump()
     {
         if (Input.GetButtonDown("Jump") && isGrounded)
+        {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
     }
 
     void ApplyGravity()
     {
-        velocity.y += gravity * Time.deltaTime;
+        if (velocity.y < 0f)
+        {
+            velocity.y += gravity * fallMultiplier * Time.deltaTime;
+        }
+        else if (velocity.y > 0f && !Input.GetButton("Jump"))
+        {
+            velocity.y += gravity * lowJumpMultiplier * Time.deltaTime;
+        }
+        else
+        {
+            velocity.y += gravity * Time.deltaTime;
+        }
+
         controller.Move(velocity * Time.deltaTime);
     }
 }
