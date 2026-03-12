@@ -31780,6 +31780,7 @@ MonoBehaviour:
   shopItems:
   - {fileID: 11400000, guid: 760df4724cb77f746bec561417cb503a, type: 2}
   - {fileID: 11400000, guid: 760df4724cb77f746bec561417cb503a, type: 2}
+  - {fileID: 11400000, guid: 7331e5c607dc75e4ba7325bf4cd4e55c, type: 2}
   itemContainer: {fileID: 0}
   itemPrefab: {fileID: 2684630883888888497, guid: 6a3e3552ef333ec4f8b6f933013acaf3, type: 3}
   sellItemContainer: {fileID: 0}
