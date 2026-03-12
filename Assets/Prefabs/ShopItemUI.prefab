@@ -147,6 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 678871884244591731}
   - component: {fileID: 7837257682396090253}
+  - component: {fileID: 8178793774871530531}
   m_Layer: 5
   m_Name: ShopItemUI
   m_TagString: Untagged
@@ -193,6 +194,19 @@ MonoBehaviour:
   nameText: {fileID: 5627029182805950562}
   priceText: {fileID: 5163095951450440301}
   buyButton: {fileID: 109485601522960109}
+  canvasGroup: {fileID: 8178793774871530531}
+--- !u!225 &8178793774871530531
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2684630883888888497}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3138310860859567179
 GameObject:
   m_ObjectHideFlags: 0

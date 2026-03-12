@@ -1,36 +1,43 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HotbarUI : MonoBehaviour
 {
-    public Image[] slots;           // hotbar slots
-    public Image[] itemIcons;       // icon for slots
+    public Image[] slots;
+    public Image[] itemIcons;
+    public TMP_Text[] amountTexts;
+
     public Color selectedColor = Color.yellow;
     public Color defaultColor = Color.white;
 
     int selectedSlot = 0;
     float scrollInput;
 
+    void Start()
+    {
+        SelectSlot(0);
+        RefreshUI();
+    }
+
     void Update()
     {
-        // Number keys 1-5
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < slots.Length; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
                 SelectSlot(i);
         }
 
-        // Scroll wheel
         scrollInput = Input.GetAxisRaw("Mouse ScrollWheel");
+
         if (scrollInput > 0f)
-            SelectSlot((selectedSlot - 1 + 5) % 5);
+            SelectSlot((selectedSlot - 1 + slots.Length) % slots.Length);
         else if (scrollInput < 0f)
-            SelectSlot((selectedSlot + 1) % 5);
+            SelectSlot((selectedSlot + 1) % slots.Length);
     }
 
     void SelectSlot(int index)
     {
-        // Reset all slots
         for (int i = 0; i < slots.Length; i++)
             slots[i].color = defaultColor;
 
@@ -42,16 +49,24 @@ public class HotbarUI : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            Item item = Inventory.instance.hotbar[i];
-            if (item != null)
+            InventorySlot slot = Inventory.instance.hotbar[i];
+
+            if (slot != null && !slot.IsEmpty())
             {
-                itemIcons[i].sprite = item.icon;
+                itemIcons[i].sprite = slot.fish.icon;
                 itemIcons[i].enabled = true;
+
+                // Show stack number
+                if (slot.amount > 1)
+                    amountTexts[i].text = "x" + slot.amount.ToString();
+                else
+                    amountTexts[i].text = "";
             }
             else
             {
                 itemIcons[i].sprite = null;
                 itemIcons[i].enabled = false;
+                amountTexts[i].text = "";
             }
         }
     }
