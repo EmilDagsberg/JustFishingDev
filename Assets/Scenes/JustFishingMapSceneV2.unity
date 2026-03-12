@@ -157314,6 +157314,14 @@ PrefabInstance:
       propertyPath: sellItemContainer
       value: 
       objectReference: {fileID: 240078338}
+    - target: {fileID: 5744368679805937582, guid: 011f095386ebfd44c88a935e9a91eb70, type: 3}
+      propertyPath: shopItems.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5744368679805937582, guid: 011f095386ebfd44c88a935e9a91eb70, type: 3}
+      propertyPath: 'shopItems.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7331e5c607dc75e4ba7325bf4cd4e55c, type: 2}
     - target: {fileID: 8858042594870462930, guid: 011f095386ebfd44c88a935e9a91eb70, type: 3}
       propertyPath: m_LocalPosition.x
       value: 228.4

@@ -42,6 +42,7 @@ public class ShopUI : MonoBehaviour
     private int coins = 0;
     private bool shopGenerated = false;
     private List<ShopItemUI> buyItemUIs = new List<ShopItemUI>();
+    private HashSet<ItemData> purchasedItems = new HashSet<ItemData>();
 
     void Start()
     {
@@ -179,15 +180,31 @@ public class ShopUI : MonoBehaviour
         }
     }
 
-    public void BuyItem(ItemData item)
+    public void BuyItem(ItemData item, ShopItemUI itemUI)
     {
         if (coins >= item.price)
         {
             coins -= item.price;
             UpdateCoins();
-            RefreshBuyAffordability();
 
             Debug.Log("Bought: " + item.itemName);
+
+            if (item.prefabToSpawn != null)
+            {
+                Instantiate(
+                    item.prefabToSpawn,
+                    item.spawnPosition,
+                    Quaternion.Euler(item.spawnRotation)
+                );
+            }
+
+            // Mark item as owned instead of deleting it
+            if (item.canOnlyBuyOnce)
+            {
+                itemUI.MarkOwned();
+            }
+
+            RefreshBuyAffordability();
         }
         else
         {
