@@ -7,6 +7,7 @@ TagManager:
   - Terrain
   - Water
   - Vegetation
+  - House
   layers:
   - Default
   - TransparentFX
