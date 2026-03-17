@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   fishName: AngleFish
   icon: {fileID: 21300000, guid: 07d2c27be8945cb468a2b00b7f491552, type: 3}
+  worldPrefab: {fileID: 5082097677804754794, guid: 03b6fb38b56b8d846a77ce20b035ddab, type: 3}
   sellValue: 15
   maxStack: 20

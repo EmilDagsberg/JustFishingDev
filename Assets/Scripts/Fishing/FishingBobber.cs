@@ -13,6 +13,7 @@ public class FishingBobber : MonoBehaviour
     private Rigidbody rb;
 
     public bool IsInWater { get; private set; }
+    public FishingWater CurrentWater { get; private set; }
 
     public void Initialize(FishingRodController fishingRod)
     {
@@ -36,15 +37,12 @@ public class FishingBobber : MonoBehaviour
 
     private void CheckWater(GameObject other)
     {
-        Debug.Log("Bobber hit: " + other.name + " | Layer: " + LayerMask.LayerToName(other.layer));
-
         if (IsInWater) return;
 
         if (((1 << other.layer) & waterLayer) != 0)
         {
-            Debug.Log("Detected as WATER: " + other.name);
-
             IsInWater = true;
+            CurrentWater = other.GetComponent<FishingWater>();
 
             if (freezeOnWaterHit && rb != null)
             {
@@ -66,7 +64,6 @@ public class FishingBobber : MonoBehaviour
         float halfDuration = duration * 0.5f;
         float timer = 0f;
 
-        // move down
         while (timer < halfDuration)
         {
             timer += Time.deltaTime;
@@ -75,7 +72,6 @@ public class FishingBobber : MonoBehaviour
             yield return null;
         }
 
-        // move back up
         timer = 0f;
         while (timer < halfDuration)
         {

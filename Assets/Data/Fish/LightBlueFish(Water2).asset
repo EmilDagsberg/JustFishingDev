@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   fishName: LightBlueFish(Water2)
   icon: {fileID: 21300000, guid: 1f86a956283331c4db22f1c1dba46381, type: 3}
+  worldPrefab: {fileID: 2576910639401555240, guid: 38453c08482feef46925c63d2e9e6598, type: 3}
   sellValue: 25
+  maxStack: 20

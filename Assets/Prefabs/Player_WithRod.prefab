@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5082131421945169675}
   - component: {fileID: 6396366064783371805}
   - component: {fileID: -6030582986687879175}
-  - component: {fileID: 6455984586979407029}
   - component: {fileID: -3820473402386089048}
+  - component: {fileID: -4968406945445505700}
   m_Layer: 0
   m_Name: Player_WithRod
   m_TagString: Player
@@ -184,19 +184,6 @@ MonoBehaviour:
     amount: 0
   - fish: {fileID: 0}
     amount: 0
---- !u!114 &6455984586979407029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283646464560114490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0e041fc11fd30146a90463d65b6ac57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
-  items: []
 --- !u!114 &-3820473402386089048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +200,102 @@ MonoBehaviour:
   footStepSFX: {fileID: 8300000, guid: 2008c717422e9a9469516ff081db1bf3, type: 3}
   minVolume: 0.8
   maxVolume: 1
+--- !u!114 &-4968406945445505700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283646464560114490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25b757f9a93c41045a593d24e13e317c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  hotbar:
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  backpack:
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  startingHotbar:
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  startingBackpack:
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
+  - fish: {fileID: 0}
+    amount: 0
 --- !u!1 &433632963667405258
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &250511348805417781
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1140,185 +1223,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1 &2005956787428973164
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1197191954900484310}
-  - component: {fileID: 2824491612628029299}
-  - component: {fileID: 60353712657497017}
-  - component: {fileID: 2313700578334021336}
-  - component: {fileID: 4879736741785302478}
-  - component: {fileID: 4805167866902871865}
-  - component: {fileID: 1063733609238159763}
-  m_Layer: 0
-  m_Name: fishing_bobber
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1197191954900484310
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005956787428973164}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2423145871795791592}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2824491612628029299
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005956787428973164}
-  m_Mesh: {fileID: -8390212781237230375, guid: fe1ba754602a2d84a8bf05f741443c54, type: 3}
---- !u!23 &60353712657497017
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005956787428973164}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 5213433131970347048, guid: fe1ba754602a2d84a8bf05f741443c54, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2313700578334021336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005956787428973164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 756c16a6d212d5b4cb98d7bc0921e83d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FishingBobber
-  waterLayer:
-    serializedVersion: 2
-    m_Bits: 16
-  freezeOnWaterHit: 1
---- !u!135 &4879736741785302478
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005956787428973164}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &4805167866902871865
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005956787428973164}
-  serializedVersion: 5
-  m_Mass: 0.2
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!135 &1063733609238159763
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005956787428973164}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2440137460251484677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1669,7 +1573,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4450674081398353584}
-  - {fileID: 1197191954900484310}
   m_Father: {fileID: 3141262436887349328}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1589601076197763405
@@ -1742,7 +1645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishingRodController
   castPoint: {fileID: 4450674081398353584}
-  bobberPrefab: {fileID: 2005956787428973164}
+  bobberPrefab: {fileID: 5972810455880972798, guid: 0d368d08b8bf90847b2d4b22c5bc3293, type: 3}
   lineRenderer: {fileID: 496317989718961745}
   fishItem: {fileID: 11400000, guid: 457bc4f424ffbde41859fbe9031fc5ff, type: 2}
   castForce: 15

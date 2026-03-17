@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   fishName: RedBlueFish
   icon: {fileID: 21300000, guid: c3d47b3c48193e340862988b0f07221d, type: 3}
+  worldPrefab: {fileID: 5082097677804754794, guid: 03b6fb38b56b8d846a77ce20b035ddab, type: 3}
   sellValue: 25
   maxStack: 20
