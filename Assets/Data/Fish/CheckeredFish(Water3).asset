@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a45820698b674545a3c061c1b4205ff, type: 3}
-  m_Name: CheckeredFish(Water6)
+  m_Name: CheckeredFish(Water3)
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   fishName: CheckeredFish
   icon: {fileID: 21300000, guid: 3210efc7fc8e39c488665fd883f23e5c, type: 3}
+  worldPrefab: {fileID: 7168549781881387153, guid: 72411dd1ca104124298af2a81dff768d, type: 3}
   sellValue: 50
+  maxStack: 20

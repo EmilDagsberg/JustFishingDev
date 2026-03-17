@@ -15,10 +15,13 @@ public class Inventory : MonoBehaviour
     void Awake()
     {
         if (instance == null)
-            instance = this;
-        else
         {
-            Destroy(gameObject);
+            instance = this;
+        }
+        else if  (instance != this)
+        {
+            Debug.LogWarning("More than one instance of Inventory found on: " + gameObject.name);
+            Destroy(this);
             return;
         }
 

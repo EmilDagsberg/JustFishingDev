@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   fishName: LightBlueGill
   icon: {fileID: 21300000, guid: 69af7c7ba46a07149b724ff98e0cd05f, type: 3}
+  worldPrefab: {fileID: 4654631434721526621, guid: c8638163435be7a46bcfa5a523dada7d, type: 3}
   sellValue: 40
   maxStack: 20

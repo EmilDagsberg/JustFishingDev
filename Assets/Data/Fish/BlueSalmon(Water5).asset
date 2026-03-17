@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   fishName: BlueSalmon
   icon: {fileID: 21300000, guid: 686034488c12e674d9af593d5be0397d, type: 3}
+  worldPrefab: {fileID: 1793456495386761642, guid: 5d99aa1c03c23414c8e892e91cb5e51c, type: 3}
   sellValue: 30
+  maxStack: 20

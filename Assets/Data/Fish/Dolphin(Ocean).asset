@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   fishName: Dolphin
   icon: {fileID: 21300000, guid: 26efe48fe61b55440bee742f8017f4f3, type: 3}
+  worldPrefab: {fileID: 6116946952694375668, guid: 45977e3d2717782469ccbd471a526680, type: 3}
   sellValue: 150
   maxStack: 20

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishData
   fishName: GoldFish
   icon: {fileID: 21300000, guid: ec884d39811d68141b24d147b3b34e37, type: 3}
+  worldPrefab: {fileID: 7816992470260410406, guid: 775ea8698569bbf4d966f73d07ad223e, type: 3}
   sellValue: 60
   maxStack: 20
