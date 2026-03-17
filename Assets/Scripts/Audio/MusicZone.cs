@@ -3,7 +3,7 @@ using UnityEngine;
 public class MusicZone : MonoBehaviour
 {
     [SerializeField] private AudioClip music;
-    [SerializeField] public float maxVolume = 0.5f;
+    [SerializeField] public float maxVolume = 0.1f;
     [SerializeField] private float fadeDuration = 2f;
     [SerializeField] public int priority = 0;
 

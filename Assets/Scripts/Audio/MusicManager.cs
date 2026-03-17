@@ -42,7 +42,7 @@ public class MusicManager : MonoBehaviour
 
         if (currentZone != zone) return;
 
-        currentZone.FadeTo(0f);
+        currentZone.FadeTo(zone.maxVolume);
         currentZone = null;
 
         // After leaving purple forest go back to priority '0' main background music
