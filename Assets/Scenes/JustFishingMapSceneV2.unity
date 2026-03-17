@@ -44066,7 +44066,6 @@ GameObject:
   m_Component:
   - component: {fileID: 560003222}
   - component: {fileID: 560003224}
-  - component: {fileID: 560003223}
   m_Layer: 0
   m_Name: NormalForest2
   m_TagString: Untagged
@@ -44089,28 +44088,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1245067856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &560003223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560003221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f49cabc774aba3c41a73ddcc5b8f475a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ForestAmbience
-  windClips:
-  - {fileID: 8300000, guid: aeb01fca5697f0e45bff8d2bfdc6428b, type: 3}
-  maxVolume: 0.5
-  fadeDuration: 2
-  minTimeBetweenSounds: 0.5
-  maxTimeBetweenSounds: 3
-  minVolumeMult: 0.7
-  maxVolumeMult: 1
-  minPitch: 0.9
-  maxPitch: 1.1
 --- !u!65 &560003224
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -91773,6 +91750,99 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3165793d3ae6acb48863fa5e0f6d5ccb, type: 3}
+--- !u!1 &1234694766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1234694767}
+  - component: {fileID: 1234694770}
+  - component: {fileID: 1234694769}
+  - component: {fileID: 1234694768}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1234694767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234694766}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -86.3, y: 0, z: 31.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5836500960074580891}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1234694768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234694766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e01cf8c7600a441ac4363629aaecfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicZone
+  music: {fileID: 8300000, guid: fe6fcc0f5766d284e9f1a906e186e616, type: 3}
+  maxVolume: 0.1
+  fadeDuration: 2
+  priority: 0
+--- !u!114 &1234694769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234694766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49cabc774aba3c41a73ddcc5b8f475a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ForestAmbience
+  windClips:
+  - {fileID: 8300000, guid: aeb01fca5697f0e45bff8d2bfdc6428b, type: 3}
+  maxVolume: 0.5
+  fadeDuration: 2
+  minTimeBetweenSounds: 0.5
+  maxTimeBetweenSounds: 3
+  minVolumeMult: 0.7
+  maxVolumeMult: 1
+  minPitch: 0.9
+  maxPitch: 1.1
+--- !u!65 &1234694770
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234694766}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 300, y: 50, z: 300}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1235872174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 155560312399036359, guid: c255a97f0f00f934fade030c353aff54, type: 3}
@@ -101349,6 +101419,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5586220953514933799, guid: 3165793d3ae6acb48863fa5e0f6d5ccb, type: 3}
   m_PrefabInstance: {fileID: 1361379811}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1361573570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1361573571}
+  - component: {fileID: 1361573572}
+  m_Layer: 0
+  m_Name: MusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1361573571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361573570}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5836500960074580890}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1361573572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361573570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52ffe19dd415ae4abae6afc9e31bb35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicManager
 --- !u!4 &1361601282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1928207494437659676, guid: d0ba186e72690984794044cf9a82dd2e, type: 3}
@@ -109956,7 +110070,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1494037773}
   - component: {fileID: 1494037775}
-  - component: {fileID: 1494037774}
   - component: {fileID: 1494037776}
   m_Layer: 0
   m_Name: PurpleForest
@@ -109980,28 +110093,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1245067856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1494037774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494037772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f49cabc774aba3c41a73ddcc5b8f475a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ForestAmbience
-  windClips:
-  - {fileID: 8300000, guid: aeb01fca5697f0e45bff8d2bfdc6428b, type: 3}
-  maxVolume: 0.5
-  fadeDuration: 4
-  minTimeBetweenSounds: 0.5
-  maxTimeBetweenSounds: 3
-  minVolumeMult: 0.7
-  maxVolumeMult: 1
-  minPitch: 0.9
-  maxPitch: 1.1
 --- !u!65 &1494037775
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -110038,6 +110129,7 @@ MonoBehaviour:
   music: {fileID: 8300000, guid: c682c2ef34c55d14082d91149fd53116, type: 3}
   maxVolume: 0.1
   fadeDuration: 2
+  priority: 1
 --- !u!4 &1494089829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5054382993756230967, guid: b991c5ba02fa6f248873030f2063cf3d, type: 3}
@@ -147676,7 +147768,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1967207248}
   - component: {fileID: 1967207250}
-  - component: {fileID: 1967207249}
   m_Layer: 0
   m_Name: NormalForest1
   m_TagString: Untagged
@@ -147699,28 +147790,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1245067856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1967207249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967207247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f49cabc774aba3c41a73ddcc5b8f475a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ForestAmbience
-  windClips:
-  - {fileID: 8300000, guid: aeb01fca5697f0e45bff8d2bfdc6428b, type: 3}
-  maxVolume: 0.5
-  fadeDuration: 2
-  minTimeBetweenSounds: 0.5
-  maxTimeBetweenSounds: 3
-  minVolumeMult: 0.7
-  maxVolumeMult: 1
-  minPitch: 0.9
-  maxPitch: 1.1
 --- !u!65 &1967207250
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -159810,9 +159879,25 @@ PrefabInstance:
       objectReference: {fileID: 652638094}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 818651559214059960, guid: de37eff674d2d6341a3215316eaa0cfd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1361573571}
+    - targetCorrespondingSourceObject: {fileID: 7314387023552277223, guid: de37eff674d2d6341a3215316eaa0cfd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1234694767}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de37eff674d2d6341a3215316eaa0cfd, type: 3}
+--- !u!4 &5836500960074580890 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 818651559214059960, guid: de37eff674d2d6341a3215316eaa0cfd, type: 3}
+  m_PrefabInstance: {fileID: 5836500960074580889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5836500960074580891 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7314387023552277223, guid: de37eff674d2d6341a3215316eaa0cfd, type: 3}
+  m_PrefabInstance: {fileID: 5836500960074580889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6188809965950014653
 PrefabInstance:
   m_ObjectHideFlags: 0
