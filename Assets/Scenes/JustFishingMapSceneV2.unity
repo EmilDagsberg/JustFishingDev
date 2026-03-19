@@ -32313,6 +32313,10 @@ PrefabInstance:
       propertyPath: bobberPrefab
       value: 
       objectReference: {fileID: 5972810455880972798, guid: 0d368d08b8bf90847b2d4b22c5bc3293, type: 3}
+    - target: {fileID: 3941719008819844836, guid: 859a1e9d3cd40bf489f444df8550fbaa, type: 3}
+      propertyPath: fishingRodSFX
+      value: 
+      objectReference: {fileID: 1746079232}
     - target: {fileID: 4607264704059095583, guid: 859a1e9d3cd40bf489f444df8550fbaa, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -91763,7 +91767,7 @@ GameObject:
   - component: {fileID: 1234694769}
   - component: {fileID: 1234694768}
   m_Layer: 0
-  m_Name: Sound
+  m_Name: BackgroundSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91800,6 +91804,7 @@ MonoBehaviour:
   maxVolume: 0.1
   fadeDuration: 2
   priority: 0
+  chosenVolume: 0.5
 --- !u!114 &1234694769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110130,6 +110135,7 @@ MonoBehaviour:
   maxVolume: 0.1
   fadeDuration: 2
   priority: 1
+  chosenVolume: 1
 --- !u!4 &1494089829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5054382993756230967, guid: b991c5ba02fa6f248873030f2063cf3d, type: 3}
@@ -129953,6 +129959,55 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f88b8ea8bdf544dadd60344ab2fe1e, type: 3}
+--- !u!1 &1746079230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1746079231}
+  - component: {fileID: 1746079232}
+  m_Layer: 0
+  m_Name: FishingRodSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1746079231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746079230}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5836500960074580891}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1746079232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746079230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf1261ddff497a4eb90f5b94fc6e540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishingRodSFX
+  audioSource: {fileID: 0}
+  throwSound: {fileID: 8300000, guid: a8bfe8235cb3bbc489f206e95b562250, type: 3}
+  splashSound: {fileID: 8300000, guid: a59d5ec583a47a64e9b5b1359f39569f, type: 3}
+  reelSound: {fileID: 8300000, guid: f22bf2fd6ed0780409b50dc38cfbdd73, type: 3}
+  volume: 0.5
 --- !u!1001 &1746830622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -159886,6 +159941,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7314387023552277223, guid: de37eff674d2d6341a3215316eaa0cfd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1234694767}
+    - targetCorrespondingSourceObject: {fileID: 7314387023552277223, guid: de37eff674d2d6341a3215316eaa0cfd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1746079231}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de37eff674d2d6341a3215316eaa0cfd, type: 3}
 --- !u!4 &5836500960074580890 stripped

@@ -31,7 +31,7 @@ public class MusicManager : MonoBehaviour
         }
 
         currentZone = zone;
-        currentZone.FadeTo(currentZone.maxVolume);
+        currentZone.FadeTo(currentZone.chosenVolume);
     }
 
     public void RequestStop(MusicZone zone)
@@ -42,7 +42,7 @@ public class MusicManager : MonoBehaviour
 
         if (currentZone != zone) return;
 
-        currentZone.FadeTo(zone.maxVolume);
+        currentZone.FadeTo(0f);
         currentZone = null;
 
         // After leaving purple forest go back to priority '0' main background music
@@ -60,7 +60,7 @@ public class MusicManager : MonoBehaviour
         if (goBack != null)
         {
             currentZone = goBack;
-            currentZone.FadeTo(currentZone.maxVolume);
+            currentZone.FadeTo(currentZone.chosenVolume);
         }
     }
 }
