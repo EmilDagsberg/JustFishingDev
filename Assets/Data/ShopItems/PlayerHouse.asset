@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: House
   icon: {fileID: 21300000, guid: 67ecb122fe7c129468edf097e0ff3aa0, type: 3}
   price: 150
+  description: You get your very own house
   prefabToSpawn: {fileID: 7196774210521824785, guid: e3f5002d0a815cf4aa42fd60e0efb7e2, type: 3}
   spawnPosition: {x: 35.22, y: 14.15, z: 273.09}
   spawnRotation: {x: 0, y: -32.121, z: 0}

@@ -7,6 +7,9 @@ public class ItemData : ScriptableObject
     public Sprite icon;
     public int price;
 
+    [TextArea(2,5)]
+    public string description;
+
     [Header("Spawn On Buy")]
     public GameObject prefabToSpawn;
     public Vector3 spawnPosition;

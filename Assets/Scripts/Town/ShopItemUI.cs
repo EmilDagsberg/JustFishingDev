@@ -6,6 +6,7 @@ public class ShopItemUI : MonoBehaviour
 {
     public Image icon;
     public TextMeshProUGUI nameText;
+    public TextMeshProUGUI descriptionText; // NEW
     public TextMeshProUGUI priceText;
     public Button buyButton;
     public CanvasGroup canvasGroup;
@@ -16,17 +17,18 @@ public class ShopItemUI : MonoBehaviour
     bool isOwned = false;
 
     public void Setup(ItemData newItem, ShopUI manager)
-    {
-        item = newItem;
-        shopManager = manager;
+{
+    item = newItem;
+    shopManager = manager;
 
-        icon.sprite = item.icon;
-        nameText.text = item.itemName;
-        priceText.text = item.price.ToString();
+    icon.sprite = item.icon;
+    nameText.text = item.itemName;
+    priceText.text = item.price.ToString();
+    descriptionText.text = item.description;
 
-        buyButton.onClick.RemoveAllListeners();
-        buyButton.onClick.AddListener(BuyItem);
-    }
+    buyButton.onClick.RemoveAllListeners();
+    buyButton.onClick.AddListener(BuyItem);
+}
 
     public void RefreshAffordableState(int currentCoins)
     {
