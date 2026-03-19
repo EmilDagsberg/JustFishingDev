@@ -8,6 +8,8 @@ public class FishingBobber : MonoBehaviour
 
     [Header("Floating")]
     [SerializeField] private bool freezeOnWaterHit = true;
+    [SerializeField] private float submergeOffset = 0.5f;
+    [SerializeField] private float settleDuration = 0.15f;
 
     private FishingRodController rod;
     private Rigidbody rb;
@@ -42,17 +44,46 @@ public class FishingBobber : MonoBehaviour
         if (((1 << other.layer) & waterLayer) != 0)
         {
             IsInWater = true;
-            CurrentWater = other.GetComponent<FishingWater>();
+            CurrentWater = other.GetComponentInParent<FishingWater>();
 
-            if (freezeOnWaterHit && rb != null)
-            {
-                rb.linearVelocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-                rb.useGravity = false;
-                rb.isKinematic = true;
-            }
+            StartCoroutine(SettleOnWater(other));
 
             rod?.NotifyBobberHitWater(this);
+        }
+    }
+
+    private IEnumerator SettleOnWater(GameObject waterObject)
+    {
+        Collider waterCollider = waterObject.GetComponent<Collider>();
+        if (waterCollider == null)
+            yield break;
+
+        float waterSurfaceY = waterCollider.bounds.max.y;
+        Vector3 startPos = transform.position;
+        Vector3 targetPos = new Vector3(startPos.x, waterSurfaceY - submergeOffset, startPos.z);
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.useGravity = false;
+        }
+
+        float timer = 0f;
+
+        while (timer < settleDuration)
+        {
+            timer += Time.deltaTime;
+            float t = timer / settleDuration;
+            transform.position = Vector3.Lerp(startPos, targetPos, t);
+            yield return null;
+        }
+
+        transform.position = targetPos;
+
+        if (freezeOnWaterHit && rb != null)
+        {
+            rb.isKinematic = true;
         }
     }
 

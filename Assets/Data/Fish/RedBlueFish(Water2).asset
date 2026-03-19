@@ -17,3 +17,4 @@ MonoBehaviour:
   worldPrefab: {fileID: 5082097677804754794, guid: 03b6fb38b56b8d846a77ce20b035ddab, type: 3}
   sellValue: 25
   maxStack: 20
+  catchVisualScale: 4
