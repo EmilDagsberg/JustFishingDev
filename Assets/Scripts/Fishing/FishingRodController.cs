@@ -8,6 +8,7 @@ public class FishingRodController : MonoBehaviour
     [SerializeField] private Transform playerCatchPoint;
     [SerializeField] private GameObject bobberPrefab;
     [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private FishingRodSFX fishingRodSFX; // Added by Kuke for ref
 
     [Header("Cast Settings")]
     [SerializeField] private float castForce = 15f;
@@ -92,10 +93,14 @@ public class FishingRodController : MonoBehaviour
 
         if (lineRenderer != null)
             lineRenderer.enabled = true;
+
+        // Added for SFX (Kuke)
+        fishingRodSFX.OnBobberThrow();
     }
 
     private void ReelLine()
     {
+
         if (biteRoutine != null)
         {
             StopCoroutine(biteRoutine);
@@ -116,11 +121,18 @@ public class FishingRodController : MonoBehaviour
 
         if (lineRenderer != null)
             lineRenderer.enabled = false;
+
+        // Added for SFX (Kuke)
+        fishingRodSFX.OnReelLine();
     }
 
     public void NotifyBobberHitWater(FishingBobber bobber)
     {
         if (bobber != currentBobber) return;
+
+        // Added for SFX (Kuke)
+        fishingRodSFX.OnBobberSplash();
+        //
 
         if (biteRoutine != null)
             StopCoroutine(biteRoutine);
@@ -152,6 +164,9 @@ public class FishingRodController : MonoBehaviour
 
         hookedFish = availableFish[Random.Range(0, availableFish.Length)];
         fishCaughtOnLine = true;
+
+        //Added for SFX (Kuke)
+        fishingRodSFX.OnCaughtSound();
 
         yield return StartCoroutine(currentBobber.PlayDipAnimation(bobberDipDistance, bobberDipDuration));
     }
