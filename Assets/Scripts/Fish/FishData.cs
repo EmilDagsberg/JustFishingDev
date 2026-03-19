@@ -5,6 +5,7 @@ public class FishData : ScriptableObject
 {
     public string fishName;
     public Sprite icon;
+    public GameObject worldPrefab;
     public int sellValue;
     public int maxStack = 20;
 }
