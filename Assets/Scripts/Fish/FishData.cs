@@ -8,4 +8,6 @@ public class FishData : ScriptableObject
     public GameObject worldPrefab;
     public int sellValue;
     public int maxStack = 20;
+    public float catchVisualScale = 1f;
+    
 }

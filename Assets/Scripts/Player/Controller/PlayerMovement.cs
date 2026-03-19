@@ -4,22 +4,20 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float sprintMultiplier = 1.5f;
     [SerializeField] private float jumpHeight = 1.2f;
 
     [Header("Gravity")]
-    [SerializeField] private float gravity = -22f;
-    [SerializeField] private float fallMultiplier = 3.5f;
+    [SerializeField] private float gravity = -30f;
+    [SerializeField] private float fallMultiplier = 2.5f;
     [SerializeField] private float lowJumpMultiplier = 2f;
 
-    [Header("Ground Check")]
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private float groundDistance = 0.3f;
-    [SerializeField] private LayerMask groundMask;
-
     private CharacterController controller;
+
     private Vector3 velocity;
+    private Vector3 moveInput;
+
     private bool isGrounded;
 
     public Vector3 CurrentMovement { get; private set; }
@@ -32,35 +30,30 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         CheckGround();
-        HandleMovement();
+        HandleInput();
         HandleJump();
         ApplyGravity();
+        MovePlayer();
     }
-
+    
     void CheckGround()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = controller.isGrounded;
 
         if (isGrounded && velocity.y < 0f)
         {
             velocity.y = -2f;
         }
     }
-
-    void HandleMovement()
+    void HandleInput()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        CurrentMovement = move;
-
-        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
-        float moveSpeed = isSprinting ? speed * sprintMultiplier : speed;
-
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        moveInput = (transform.right * x + transform.forward * z).normalized;
+        CurrentMovement = moveInput;
     }
-
+    
     void HandleJump()
     {
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -68,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
-
+    
     void ApplyGravity()
     {
         if (velocity.y < 0f)
@@ -83,7 +76,16 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y += gravity * Time.deltaTime;
         }
+    }
+    
+    void MovePlayer()
+    {
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+        float currentSpeed = isSprinting ? walkSpeed * sprintMultiplier : walkSpeed;
 
-        controller.Move(velocity * Time.deltaTime);
+        Vector3 finalMove = moveInput * currentSpeed;
+        finalMove.y = velocity.y;
+
+        controller.Move(finalMove * Time.deltaTime);
     }
 }

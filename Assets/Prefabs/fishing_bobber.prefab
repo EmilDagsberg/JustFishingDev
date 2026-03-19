@@ -87,6 +87,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16
   freezeOnWaterHit: 1
+  submergeOffset: 0.5
+  settleDuration: 0.2
 --- !u!54 &3782200366518478684
 Rigidbody:
   m_ObjectHideFlags: 0

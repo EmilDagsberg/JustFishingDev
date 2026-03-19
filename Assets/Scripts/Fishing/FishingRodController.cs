@@ -189,6 +189,7 @@ public class FishingRodController : MonoBehaviour
         Vector3 endPos = playerCatchPoint != null ? playerCatchPoint.position : transform.position;
 
         GameObject fishVisual = Instantiate(fish.worldPrefab, startPos, Quaternion.identity);
+        fishVisual.transform.localScale *= fish.catchVisualScale;
 
         Rigidbody fishRb = fishVisual.GetComponent<Rigidbody>();
         if (fishRb != null)

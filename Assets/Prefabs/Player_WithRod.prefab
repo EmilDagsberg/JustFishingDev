@@ -1568,7 +1568,7 @@ Transform:
   m_GameObject: {fileID: 3092687582260624466}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.045, y: -0.852, z: 0.914}
+  m_LocalPosition: {x: 0.842, y: -0.852, z: 0.914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1645,15 +1645,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishingRodController
   castPoint: {fileID: 4450674081398353584}
+  playerCatchPoint: {fileID: 0}
   bobberPrefab: {fileID: 5972810455880972798, guid: 0d368d08b8bf90847b2d4b22c5bc3293, type: 3}
   lineRenderer: {fileID: 496317989718961745}
-  fishItem: {fileID: 11400000, guid: 457bc4f424ffbde41859fbe9031fc5ff, type: 2}
   castForce: 15
   upwardForce: 2
   minBiteTime: 5
   maxBiteTime: 30
   bobberDipDistance: 0.25
   bobberDipDuration: 1
+  fishFlyDuration: 0.6
+  fishArcHeight: 1.5
+  fishSpinSpeed: 360
+  caughtFishVisualScale: 6
 --- !u!120 &496317989718961745
 LineRenderer:
   serializedVersion: 3
@@ -2539,7 +2543,7 @@ Transform:
   m_GameObject: {fileID: 4928165047981673446}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.85, y: -0.84, z: 6.402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
