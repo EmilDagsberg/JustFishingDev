@@ -13,11 +13,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float fallMultiplier = 2.5f;
     [SerializeField] private float lowJumpMultiplier = 2f;
 
-    private CharacterController controller;
+    [Header("Animation")]
+    [SerializeField] private Animator bodyAnimator;
 
+    private CharacterController controller;
     private Vector3 velocity;
     private Vector3 moveInput;
-
     private bool isGrounded;
 
     public Vector3 CurrentMovement { get; private set; }
@@ -25,6 +26,11 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        if (bodyAnimator == null)
+        {
+            bodyAnimator = GetComponentInChildren<Animator>();
+        }
     }
 
     void Update()
@@ -34,8 +40,9 @@ public class PlayerMovement : MonoBehaviour
         HandleJump();
         ApplyGravity();
         MovePlayer();
+        UpdateBodyAnimation();
     }
-    
+
     void CheckGround()
     {
         isGrounded = controller.isGrounded;
@@ -45,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
     }
+
     void HandleInput()
     {
         float x = Input.GetAxisRaw("Horizontal");
@@ -53,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         moveInput = (transform.right * x + transform.forward * z).normalized;
         CurrentMovement = moveInput;
     }
-    
+
     void HandleJump()
     {
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -61,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
-    
+
     void ApplyGravity()
     {
         if (velocity.y < 0f)
@@ -77,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
         }
     }
-    
+
     void MovePlayer()
     {
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
@@ -87,5 +95,22 @@ public class PlayerMovement : MonoBehaviour
         finalMove.y = velocity.y;
 
         controller.Move(finalMove * Time.deltaTime);
+    }
+
+    void UpdateBodyAnimation()
+    {
+        if (bodyAnimator == null)
+            return;
+
+        float speedValue = 0f;
+
+        if (moveInput.magnitude > 0.1f)
+        {
+            bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+            speedValue = isSprinting ? 1f : 0.5f;
+        }
+
+        bodyAnimator.SetFloat("Speed", speedValue);
+        bodyAnimator.SetBool("IsGrounded", isGrounded);
     }
 }

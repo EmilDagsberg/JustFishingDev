@@ -77,17 +77,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351e295c7007b574bad869a67ed23965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 5
+  walkSpeed: 3.5
   sprintMultiplier: 1.5
   jumpHeight: 1.2
-  gravity: -45
-  fallMultiplier: 3.5
+  gravity: -30
+  fallMultiplier: 2.5
   lowJumpMultiplier: 2
-  groundCheck: {fileID: 527243197650235769}
-  groundDistance: 0.3
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 1
+  bodyAnimator: {fileID: 2599785351009978524}
 --- !u!114 &-6030582986687879175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1280,9 +1276,9 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 160, y: 180}
-  m_Spacing: {x: 10, y: 10}
+  m_Spacing: {x: 100, y: 10}
   m_Constraint: 1
-  m_ConstraintCount: 3
+  m_ConstraintCount: 5
 --- !u!1 &2856937753236100169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,6 +1548,7 @@ GameObject:
   - component: {fileID: 3597129841595932039}
   - component: {fileID: 3941719008819844836}
   - component: {fileID: 496317989718961745}
+  - component: {fileID: 8101798536103148105}
   m_Layer: 0
   m_Name: fishing_pole
   m_TagString: Untagged
@@ -1648,6 +1645,7 @@ MonoBehaviour:
   playerCatchPoint: {fileID: 0}
   bobberPrefab: {fileID: 5972810455880972798, guid: 0d368d08b8bf90847b2d4b22c5bc3293, type: 3}
   lineRenderer: {fileID: 496317989718961745}
+  fishingRodSFX: {fileID: 0}
   castForce: 15
   upwardForce: 2
   minBiteTime: 5
@@ -1657,7 +1655,6 @@ MonoBehaviour:
   fishFlyDuration: 0.6
   fishArcHeight: 1.5
   fishSpinSpeed: 360
-  caughtFishVisualScale: 6
 --- !u!120 &496317989718961745
 LineRenderer:
   serializedVersion: 3
@@ -1768,6 +1765,32 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &8101798536103148105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3092687582260624466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978e7bfe92841c244ac87d3677364d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishingRodAnimator
+  playerMovement: {fileID: 6396366064783371805}
+  fishingRodController: {fileID: 3941719008819844836}
+  idleSwayAmount: 0.02
+  idleSwaySpeed: 1.5
+  idleRotationAmount: 1.5
+  bobAmount: 0.04
+  bobSpeed: 7
+  bobRotationAmount: 2
+  castBackAngle: 25
+  castForwardAngle: 45
+  castBackDuration: 0.15
+  castForwardDuration: 0.2
+  returnDuration: 0.2
+  bobberReleaseTime: 0.05
 --- !u!1 &3262153153095025083
 GameObject:
   m_ObjectHideFlags: 0
@@ -2280,7 +2303,7 @@ Transform:
   m_GameObject: {fileID: 4607264704059095583}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 0.2}
+  m_LocalPosition: {x: 0, y: 1.745, z: 0.411}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3819,8 +3842,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7324644272788662115}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cec7a2fc748b54b4f9f61f7688c41a5b, type: 2}
+  m_Avatar: {fileID: 9000000, guid: c1018c80976631340b7b65c688d8aa5e, type: 3}
+  m_Controller: {fileID: 9100000, guid: afa6668371b4ae941aed84d3a341a2e9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
