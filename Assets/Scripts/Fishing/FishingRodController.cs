@@ -47,18 +47,10 @@ public class FishingRodController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (!lineCast)
-                CastLine();
-            else
-                ReelLine();
-        }
-
         UpdateFishingLine();
     }
 
-    private void CastLine()
+    public void CastLine()
     {
         if (bobberPrefab == null || castPoint == null)
         {
@@ -98,7 +90,7 @@ public class FishingRodController : MonoBehaviour
         fishingRodSFX.OnBobberThrow();
     }
 
-    private void ReelLine()
+    public void ReelLine()
     {
 
         if (biteRoutine != null)
@@ -124,6 +116,11 @@ public class FishingRodController : MonoBehaviour
 
         // Added for SFX (Kuke)
         fishingRodSFX.OnReelLine();
+    }
+
+    public bool HasLineCast()
+    {
+        return lineCast;
     }
 
     public void NotifyBobberHitWater(FishingBobber bobber)
